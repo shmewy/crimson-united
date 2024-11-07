@@ -1,179 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crimson United</title>
-    <style>
-      /* Existing CSS */
-      body {
-        overflow-x: hidden;
-        font-family: 'Arial', sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4;
-        color: #333;
-        transition: background-color 0.3s ease;
-      }
-      header {
-        background-color: #8B0000;
-        color: white;
-        padding: 15px 0;
-        position: sticky;
-        top: 0;
-        width: 100%;
-        z-index: 1000;
-        text-align: center;
-        transition: background-color 0.3s ease;
-      }
-      header nav a {
-        color: white;
-        margin: 0 15px;
-        text-decoration: none;
-        font-weight: bold;
-        transition: color 0.3s ease;
-      }
-      header nav a:hover {
-        color: #FFD700;
-      }
+<head>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crimson United</title>
+  <style>
+    /* Basic Styles */
+    body {
+      overflow-x: hidden;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+      transition: background-color 0.3s ease;
+    }
+    header {
+      background-color: #8B0000;
+      color: white;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      text-align: center;
+      transition: background-color 0.3s ease;
+    }
+    header nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    header nav a:hover {
+      color: #FFD700;
+    }
 
-      /* Popup Overlay for Ad */
-      .ad-popup {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 1000;
-      }
+    /* Popup Overlay for Ad */
+    .ad-popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
 
-      /* Popup Content */
-      .ad-content {
-        background-color: white;
-        padding: 20px;
-        border-radius: 8px;
-        width: 80%;
-        max-width: 500px;
-        text-align: center;
-        position: relative;
-      }
+    /* Popup Content */
+    .ad-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      width: 80%;
+      max-width: 500px;
+      text-align: center;
+    }
 
-      .ad-content h2 {
-        margin-top: 0;
-      }
+    .ad-content h2 {
+      margin-top: 0;
+      font-size: 1.5em;
+      color: #8B0000;
+    }
 
-      .ad-content video {
-        width: 100%;
-        border-radius: 5px;
-      }
+    .ad-content video {
+      width: 100%;
+      border-radius: 5px;
+    }
 
-      .close-btn {
-        display: none; /* Hidden initially */
-        margin-top: 15px;
-        padding: 10px 20px;
-        background-color: #8B0000;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-      }
+    .close-btn {
+      display: none; /* Hidden initially */
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #8B0000;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
 
-      /* Additional styles for your main page remain unchanged */
-    </style>
-  </head>
-  <body>
-    <header>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="about-us.html">About Us</a>
-        <a href="policies.html">Policies</a>
-        <a href="news.html">News</a>
-        <a href="events.html">Events</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </header>
+    /* Additional styles for main content */
+    .hero {
+      background-image: url('IMG_0106.jpg'); /* Replace with your image URL */
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: left;
+      height: 140vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 5%;
+      box-sizing: border-box;
+    }
 
-    <!-- Ad Popup Structure -->
-    <div id="ad-popup" class="ad-popup">
-      <div class="ad-content">
-        <h2>Watch This Video Supporting Eric Schellhaas!</h2>
-        <video id="ad-video" controls autoplay>
-          <source src="election.mp4" type="video/mp4"> <!-- Replace with your video URL -->
-          Your browser does not support the video tag.
-        </video>
-        <button id="close-btn" class="close-btn" onclick="closeAd()">Close</button>
-      </div>
+    .hero h1 {
+      font-size: 4em;
+      margin: 0;
+      color: #fff;
+    }
+
+    .hero form {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 5px;
+      border: 2px solid #8B0000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      width: 40%;
+      max-width: 600px;
+    }
+
+    section {
+      background-color: white;
+      margin: 20px auto;
+      padding: 20px;
+      width: 90%;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about-us.html">About Us</a>
+      <a href="policies.html">Policies</a>
+      <a href="news.html">News</a>
+      <a href="events.html">Events</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Ad Popup Structure -->
+  <div id="ad-popup" class="ad-popup">
+    <div class="ad-content">
+      <h2>Special Offer!</h2>
+      <video id="ad-video" autoplay muted controls>
+        <source src="election.mp4" type="video/mp4"> <!-- Replace with your video URL -->
+        Your browser does not support the video tag.
+      </video>
+      <button id="close-btn" class="close-btn" onclick="closeAd()">Close</button>
     </div>
+  </div>
 
-    <section id="home" class="hero">
-      <h1>Welcome to Crimson United</h1>
-      <p>Together for a Brighter Future</p>
-      <form action="your-moms-house.html" method="POST">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <label for="amount">Donation Amount:</label>
-        <input type="number" id="amount" name="amount" min="1" required>
-        <button type="submit">Donate</button>
-      </form>
-    </section>
+  <section id="home" class="hero">
+    <h1>Welcome to Crimson United</h1>
+    <p>Together for a Brighter Future</p>
+    <form action="your-moms-house.html" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <label for="amount">Donation Amount:</label>
+      <input type="number" id="amount" name="amount" min="1" required>
+      <button type="submit">Donate</button>
+    </form>
+  </section>
 
-    <section id="about">
-      <h2>About Us</h2>
-      <img src="about-us.png" alt="About Us Image"> <!-- Replace with your image URL -->
-      <p>Our Story, Vision, and Leadership</p>
-    </section>
+  <!-- Additional Sections (About, Policies, etc.) go here -->
 
-    <section id="policies">
-      <h2>Policies</h2>
-      <img src="policy.jpg" alt="Policies Image"> <!-- Replace with your image URL -->
-      <p>Economy, Immigration, Defense, Foreign Affairs</p>
-    </section>
+  <footer>
+    <p>&copy; 2024 Crimson United. All rights reserved.</p>
+  </footer>
 
-    <section id="news">
-      <h2>News</h2>
-      <img src="news-image-url.jpg" alt="News Image"> <!-- Replace with your image URL -->
-      <p>Latest Updates and Media Gallery</p>
-    </section>
+  <!-- JavaScript for Popup -->
+  <script>
+    // Show the popup when the page loads
+    window.onload = function() {
+      const closeButton = document.getElementById("close-btn");
+      const adVideo = document.getElementById("ad-video");
 
-    <section id="events">
-      <h2>Events</h2>
-      <img src="calendar.png" alt="Events Image"> <!-- Replace with your image URL -->
-      <p>Upcoming Events and Volunteer Opportunities</p>
-    </section>
+      // Display the close button after 5 seconds
+      setTimeout(() => {
+        closeButton.style.display = "inline-block";
+      }, 5000); // 5000ms = 5 seconds
+    };
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <img src="contact-image-url.jpg" alt="Contact Image"><!-- Replace with your image URL -->
-      <p>Contact Form and Social Media Links</p>
-    </section>
+    // Close the ad popup and stop the video
+    function closeAd() {
+      const adPopup = document.getElementById("ad-popup");
+      const adVideo = document.getElementById("ad-video");
 
-    <footer>
-      <p>&copy; 2024 Crimson United. All rights reserved.</p>
-    </footer>
-
-    <!-- JavaScript for Popup -->
-    <script>
-      // Show the popup when the page loads
-      window.onload = function() {
-        const closeButton = document.getElementById("close-btn");
-
-        // Display the close button after 5 seconds
-        setTimeout(() => {
-          closeButton.style.display = "inline-block";
-        }, 5000); // 5000ms = 5 seconds
-      };
-
-      // Close the ad popup
-      function closeAd() {
-        document.getElementById("ad-popup").style.display = "none";
-      }
-    </script>
-  </body>
+      adPopup.style.display = "none";
+      adVideo.pause(); // Stop video playback when the popup is closed
+    }
+  </script>
+</body>
 </html>
