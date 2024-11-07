@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crimson United</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
     <style>
       body {
         overflow-x: hidden;
@@ -104,6 +106,16 @@
         transform: scale(1.05);
       }
       section {
+        /* Remove blue highlight on clickable sections */
+        .clickable-section {
+          text-decoration: none;
+          color: inherit;
+        }
+
+        .clickable-section:focus,
+        .clickable-section:active {
+          outline: none;
+        }
         background-color: white;
         margin: 20px auto;
         padding: 20px;
@@ -205,6 +217,7 @@
         border-radius: 5px;
         cursor: pointer;
       }
+      /* Remove blue highlight on clickable sections */
     </style>
   </head>
   <body>
@@ -224,7 +237,7 @@
       <div class="ad-content">
         <h2>Watch This Video Supporting Eric Schellhaas!</h2>
         <video id="ad-video" autoplay controls>
-          <source src="your-video-file.mp4" type="video/mp4"> <!-- Replace with your video URL -->
+          <source src="election.mp4" type="video/mp4"> <!-- Replace with your video URL -->
           Your browser does not support the video tag.
         </video>
         <button id="close-btn" class="close-btn" onclick="closeAd()">Close</button>
