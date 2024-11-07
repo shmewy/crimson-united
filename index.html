@@ -1,207 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Crimson United</title>
-  <style>
-    /* Basic Styles */
-    body {
-      overflow-x: hidden;
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-      color: #333;
-      transition: background-color 0.3s ease;
-    }
-    header {
-      background-color: #8B0000;
-      color: white;
-      padding: 15px 0;
-      position: sticky;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      text-align: center;
-      transition: background-color 0.3s ease;
-    }
-    header nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-    header nav a:hover {
-      color: #FFD700;
-    }
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crimson United</title>
+    <style>
+      body {
+        overflow-x: hidden;
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+        transition: background-color 0.3s ease;
+      }
+      header {
+        background-color: #8B0000; /* Crimson color */
+        color: white;
+        padding: 15px 0;
+        position: sticky;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        text-align: center;
+        transition: background-color 0.3s ease;
+      }
+      header nav a {
+        color: white;
+        margin: 0 15px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+      header nav a:hover {
+        color: #FFD700; /* Gold color on hover */
+      }
+      .hero {
+        background-image: url('IMG_0106.jpg'); /* Replace with your image URL */
+        background-size: cover;
+        background-position: 1550px;
+        color: white;
+        border-radius: 0px;
+        text-align: left;
+        height: 140vh;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        margin: 0;
+        position: relative;
+        transition: background-size 0.3s ease;
+      }
+      .hero h1 {
+        font-size: 4em;
+        margin: 0 0 0 5%;
+        transition: color 0.3s ease;
+      }
+      .hero form {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 5px;
+        border: 2px solid #8B0000;
+        position: absolute;
+        right: 4%;
+        top: 20%;
+        transform: translateY(-50%);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 40%;
+        max-width: 600px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .hero form:hover {
+        transform: translateY(-50%) scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      }
+      .hero form label,
+      .hero form input {
+        display: block;
+        margin: 10px 0;
+        color: black;
+        transition: color 0.3s ease, background-color 0.3s ease;
+      }
+      .hero form input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+      .hero form button {
+        background-color: #8B0000;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        width: 100%;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+      .hero form button:hover {
+        background-color: #FFD700;
+        transform: scale(1.05);
+      }
+      section {
+        background-color: white;
+        margin: 20px auto;
+        padding: 20px;
+        width: 90%;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: background-color 0.3s ease;
+      }
+      section h2 {
+        color: #8B0000;
+        margin-bottom: 10px;
+        transition: color 0.3s ease;
+      }
+      section img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        transition: transform 0.3s ease;
+      }
+      section img:hover {
+        transform: scale(1.05);
+      }
+      footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        width: 100%;
+        margin: 0;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      footer p {
+        margin: 0;
+      }
+      @media (max-width: 900px) {
+        header nav a {
+          display: block;
+          margin: 5px 0;
+        }
+        .hero form {
+          width: 80%;
+          right: 10%;
+          top: auto;
+          transform: none;
+          margin: 20px auto;
+        }
+      }
+      @media (max-width: 600px) {
+        .hero form {
+          width: 90%;
+        }
+      }
 
-    /* Popup Overlay for Ad */
-    .ad-popup {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: rgba(0, 0, 0, 0.7);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
+      /* Popup Overlay for Ad */
+      .ad-popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
 
-    /* Popup Content */
-    .ad-content {
-      background-color: white;
-      padding: 20px;
-      border-radius: 8px;
-      width: 80%;
-      max-width: 500px;
-      text-align: center;
-    }
+      /* Popup Content */
+      .ad-content {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        width: 80%;
+        max-width: 500px;
+        text-align: center;
+        position: relative;
+      }
 
-    .ad-content h2 {
-      margin-top: 0;
-      font-size: 1.5em;
-      color: #8B0000;
-    }
+      .ad-content h2 {
+        margin-top: 0;
+      }
 
-    .ad-content video {
-      width: 100%;
-      border-radius: 5px;
-    }
+      .ad-content video {
+        width: 100%;
+        border-radius: 5px;
+      }
 
-    .close-btn {
-      display: none; /* Hidden initially */
-      margin-top: 15px;
-      padding: 10px 20px;
-      background-color: #8B0000;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+      .close-btn {
+        display: none; /* Hidden initially */
+        margin-top: 15px;
+        padding: 10px 20px;
+        background-color: #8B0000;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about-us.html">About Us</a>
+        <a href="policies.html">Policies</a>
+        <a href="news.html">News</a>
+        <a href="events.html">Events</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
 
-    /* Additional styles for main content */
-    .hero {
-      background-image: url('IMG_0106.jpg'); /* Replace with your image URL */
-      background-size: cover;
-      background-position: center;
-      color: white;
-      text-align: left;
-      height: 140vh;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 0 5%;
-      box-sizing: border-box;
-    }
-
-    .hero h1 {
-      font-size: 4em;
-      margin: 0;
-      color: #fff;
-    }
-
-    .hero form {
-      background: rgba(255, 255, 255, 0.9);
-      padding: 20px;
-      border-radius: 5px;
-      border: 2px solid #8B0000;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      width: 40%;
-      max-width: 600px;
-    }
-
-    section {
-      background-color: white;
-      margin: 20px auto;
-      padding: 20px;
-      width: 90%;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    footer {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      width: 100%;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about-us.html">About Us</a>
-      <a href="policies.html">Policies</a>
-      <a href="news.html">News</a>
-      <a href="events.html">Events</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
-
-  <!-- Ad Popup Structure -->
-  <div id="ad-popup" class="ad-popup">
-    <div class="ad-content">
-      <h2>Special Offer!</h2>
-      <video id="ad-video" autoplay muted controls>
-        <source src="election.mp4" type="video/mp4"> <!-- Replace with your video URL -->
-        Your browser does not support the video tag.
-      </video>
-      <button id="close-btn" class="close-btn" onclick="closeAd()">Close</button>
+    <!-- Ad Popup Structure -->
+    <div id="ad-popup" class="ad-popup">
+      <div class="ad-content">
+        <h2>Watch This Video Supporting Eric Schellhaas!</h2>
+        <video id="ad-video" autoplay controls>
+          <source src="your-video-file.mp4" type="video/mp4"> <!-- Replace with your video URL -->
+          Your browser does not support the video tag.
+        </video>
+        <button id="close-btn" class="close-btn" onclick="closeAd()">Close</button>
+      </div>
     </div>
-  </div>
 
-  <section id="home" class="hero">
-    <h1>Welcome to Crimson United</h1>
-    <p>Together for a Brighter Future</p>
-    <form action="your-moms-house.html" method="POST">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
-      <label for="amount">Donation Amount:</label>
-      <input type="number" id="amount" name="amount" min="1" required>
-      <button type="submit">Donate</button>
-    </form>
-  </section>
+    <section id="home" class="hero">
+      <h1>Welcome to Crimson United</h1>
+      <p>Together for a Brighter Future</p>
+      <form action="your-moms-house.html" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="amount">Donation Amount:</label>
+        <input type="number" id="amount" name="amount" min="1" required>
+        <button type="submit">Donate</button>
+      </form>
+    </section>
 
-  <!-- Additional Sections (About, Policies, etc.) go here -->
+    <a href="about-us.html" class="clickable-section">
+      <section id="about">
+        <h2>About Us</h2>
+        <img src="about-us.png" alt="About Us Image">
+        <p>Our Story, Vision, and Leadership</p>
+      </section>
+    </a>
 
-  <footer>
-    <p>&copy; 2024 Crimson United. All rights reserved.</p>
-  </footer>
+    <a href="policies.html" class="clickable-section">
+      <section id="policies">
+        <h2>Policies</h2>
+        <img src="policy.jpg" alt="Policies Image">
+        <p>Economy, Immigration, Defense, Foreign Affairs</p>
+      </section>
+    </a>
 
-  <!-- JavaScript for Popup -->
-  <script>
-    // Show the popup when the page loads
-    window.onload = function() {
-      const closeButton = document.getElementById("close-btn");
-      const adVideo = document.getElementById("ad-video");
+    <a href="news.html" class="clickable-section">
+      <section id="news">
+        <h2>News</h2>
+        <img src="news-image-url.jpg" alt="News Image">
+        <p>Latest Updates and Media Gallery</p>
+      </section>
+    </a>
 
-      // Display the close button after 5 seconds
-      setTimeout(() => {
-        closeButton.style.display = "inline-block";
-      }, 5000); // 5000ms = 5 seconds
-    };
+    <a href="events.html" class="clickable-section">
+      <section id="events">
+        <h2>Events</h2>
+        <img src="calendar.png" alt="Events Image">
+        <p>Upcoming Events and Volunteer Opportunities</p>
+      </section>
+    </a>
 
-    // Close the ad popup and stop the video
-    function closeAd() {
-      const adPopup = document.getElementById("ad-popup");
-      const adVideo = document.getElementById("ad-video");
+    <a href="contact.html" class="clickable-section">
+      <section id="contact">
+        <h2>Contact</h2>
+        <img src="contact-image-url.jpg" alt="Contact Image">
+        <p>Contact Us</p>
+      </section>
+    </a>
+    <footer>
+      <p>&copy; 2024 Crimson United. All rights reserved.</p>
+    </footer>
 
-      adPopup.style.display = "none";
-      adVideo.pause(); // Stop video playback when the popup is closed
-    }
-  </script>
-</body>
+    <!-- JavaScript for Popup -->
+    <script>
+      // Show the popup when the page loads
+      window.onload = function() {
+        const closeButton = document.getElementById("close-btn");
+        const adVideo = document.getElementById("ad-video");
+
+        // Display the close button after 5 seconds
+        setTimeout(() => {
+          closeButton.style.display = "inline-block";
+        }, 5000);
+      };
+
+      // Close the ad popup and stop the video
+      function closeAd() {
+        const adPopup = document.getElementById("ad-popup");
+        const adVideo = document.getElementById("ad-video");
+
+        adPopup.style.display = "none";
+        adVideo.pause(); // Stop video playback when the popup is closed
+      }
+    </script>
+  </body>
 </html>
