@@ -7,6 +7,16 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
     <style>
+       /* Remove blue highlight on clickable sections */
+       .clickable-section {
+          text-decoration: none;
+          color: inherit;
+        }
+
+        .clickable-section:focus,
+        .clickable-section:active {
+          outline: none;
+        }
       body {
         overflow-x: hidden;
         font-family: 'Arial', sans-serif;
@@ -106,16 +116,6 @@
         transform: scale(1.05);
       }
       section {
-        /* Remove blue highlight on clickable sections */
-        .clickable-section {
-          text-decoration: none;
-          color: inherit;
-        }
-
-        .clickable-section:focus,
-        .clickable-section:active {
-          outline: none;
-        }
         background-color: white;
         margin: 20px auto;
         padding: 20px;
@@ -236,13 +236,14 @@
     <div id="ad-popup" class="ad-popup">
       <div class="ad-content">
         <h2>Watch This Video Supporting Eric Schellhaas!</h2>
-        <video id="ad-video" autoplay controls>
+        <video id="ad-video" autoplay playsinline>
           <source src="election.mp4" type="video/mp4"> <!-- Replace with your video URL -->
           Your browser does not support the video tag.
         </video>
         <button id="close-btn" class="close-btn" onclick="closeAd()">Close</button>
       </div>
     </div>
+    
 
     <section id="home" class="hero">
       <h1>Welcome to Crimson United</h1>
