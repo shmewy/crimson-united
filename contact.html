@@ -146,5 +146,72 @@
     <footer>
       <p>© 2024 Crimson United. All rights reserved.</p>
     </footer>
+    <style>
+        .confetti {
+        position: fixed;
+        top: -10px;
+        width: 10px;
+        height: 10px;
+        opacity: 0.7;
+        border-radius: 50%;
+        animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+        to {
+            transform: translateY(100vh) rotate(360deg);
+            opacity: 0;
+        }
+        }
+    </style>
+    <script>
+        function redirectSuccess(event) {
+          event.preventDefault(); // Prevent actual form submission
+      
+          // Display success message
+          const successMessage = document.createElement('div');
+          successMessage.textContent = "Your request has been successful!";
+          successMessage.style.position = "fixed";
+          successMessage.style.top = "20%";
+          successMessage.style.left = "50%";
+          successMessage.style.transform = "translateX(-50%)";
+          successMessage.style.backgroundColor = "#8B0000";
+          successMessage.style.color = "white";
+          successMessage.style.padding = "20px";
+          successMessage.style.borderRadius = "8px";
+          successMessage.style.fontSize = "1.5em";
+          document.body.appendChild(successMessage);
+      
+          // Start confetti
+          startConfetti();
+      
+          // Remove message and confetti after 3 seconds
+          setTimeout(() => {
+            successMessage.remove();
+            stopConfetti();
+          }, 3000);
+        }
+      
+        // Confetti animation
+        function startConfetti() {
+          const confettiColors = ["#FFD700", "#8B0000", "#FF4500", "#32CD32", "#1E90FF"];
+          for (let i = 0; i < 100; i++) {
+            const confetti = document.createElement("div");
+            confetti.classList.add("confetti");
+            confetti.style.backgroundColor = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+            confetti.style.left = `${Math.random() * 100}vw`;
+            confetti.style.animationDuration = `${Math.random() * 3 + 2}s`;
+            document.body.appendChild(confetti);
+      
+            // Remove confetti after animation ends
+            confetti.addEventListener("animationend", () => confetti.remove());
+          }
+        }
+      
+        function stopConfetti() {
+          document.querySelectorAll(".confetti").forEach(confetti => confetti.remove());
+        }
+      </script>
+    
   </body>
 </html>
