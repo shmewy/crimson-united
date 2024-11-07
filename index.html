@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crimson United</title>
     <style>
+      /* Existing CSS */
       body {
         overflow-x: hidden;
         font-family: 'Arial', sans-serif;
@@ -16,7 +17,7 @@
         transition: background-color 0.3s ease;
       }
       header {
-        background-color: #8B0000; /* Crimson color */
+        background-color: #8B0000;
         color: white;
         padding: 15px 0;
         position: sticky;
@@ -34,134 +35,56 @@
         transition: color 0.3s ease;
       }
       header nav a:hover {
-        color: #FFD700; /* Gold color on hover */
+        color: #FFD700;
       }
-      .hero {
-        background-image: url('IMG_0106.jpg'); /* Replace with your image URL */
-        background-size: cover;
-        background-position: 1550px;
-        color: white;
-        border-radius: 0px;
-        text-align: left; /* Align text to the left */
-        height:140vh;
-        width: 100vw; /* Ensure the section fills the entire viewport */
+
+      /* Popup Overlay for Ad */
+      .ad-popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
         display: flex;
-        flex-direction: column;
         justify-content: center;
-        align-items: flex-start; /* Align items to the left */
-        margin: 0;
-        position: relative;
-        transition: background-size 0.3s ease;
+        align-items: center;
+        z-index: 1000;
       }
-      .hero h1 {
-        font-size: 4em; /* Larger title */
-        margin: 0 0 0 5%; /* Add margin to the left */
-        transition: color 0.3s ease;
-      }
-      .hero form {
-        background: rgba(255, 255, 255, 0.9);
+
+      /* Popup Content */
+      .ad-content {
+        background-color: white;
         padding: 20px;
-        border-radius: 5px;
-        border: 2px solid #8B0000; /* Red border */
-        position: absolute;
-        right: 4%;
-        top: 25%;
-        transform: translateY(-50%);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for modern look */
-        width: 40%; /* Default width */
-        max-width: 600px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-radius: 8px;
+        width: 80%;
+        max-width: 500px;
+        text-align: center;
+        position: relative;
       }
-      .hero form:hover {
-        transform: translateY(-50%) scale(1.05);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+
+      .ad-content h2 {
+        margin-top: 0;
       }
-      .hero form label,
-      .hero form input {
-        display: block;
-        margin: 10px 0;
-        color: black; /* Black text */
-        transition: color 0.3s ease, background-color 0.3s ease;
-      }
-      .hero form input {
+
+      .ad-content video {
         width: 100%;
-        padding: 10px;
-        border: 1px solid #ccc;
         border-radius: 5px;
-        box-sizing: border-box;
       }
-      .hero form button {
+
+      .close-btn {
+        display: none; /* Hidden initially */
+        margin-top: 15px;
+        padding: 10px 20px;
         background-color: #8B0000;
         color: white;
         border: none;
-        padding: 10px 20px;
-        cursor: pointer;
-        width: 100%; /* Full width button */
         border-radius: 5px;
-        transition: background-color 0.3s ease, transform 0.3s ease;
+        cursor: pointer;
       }
-      .hero form button:hover {
-        background-color: #FFD700; /* Gold color on hover */
-        transform: scale(1.05);
-      }
-      section {
-        background-color: white;
-        margin: 20px auto;
-        padding: 20px;
-        width: 90%;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        transition: background-color 0.3s ease;
-      }
-      section h2 {
-        color: #8B0000;
-        margin-bottom: 10px;
-        transition: color 0.3s ease;
-      }
-      section img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 10px;
-        margin-bottom: 20px;
-        transition: transform 0.3s ease;
-      }
-      section img:hover {
-        transform: scale(1.05);
-      }
-      footer {
-        background-color: #333;
-        color: white;
-        text-align: center;
-        padding: 20px;
-        width: 100%;
-        margin: 0;
-        transition: background-color 0.3s ease, color 0.3s ease;
-      }
-      footer p {
-        margin: 0;
-      }
-      @media (max-width: 900px) {
-        header nav a {
-          display: block;
-          margin: 5px 0;
-        }
-        .hero form {
-          width: 80%; /* Make form full width on small screens */
-          right: 10%;
-          top: auto;
-          transform: none;
-          margin: 20px auto;
-        }
-      }
-      @media (max-width: 600px) {
-        .hero form {
-          width: 90%; /* Adjust form width for very small screens */
-        }
-      }
-  </style>
+
+      /* Additional styles for your main page remain unchanged */
+    </style>
   </head>
   <body>
     <header>
@@ -175,11 +98,22 @@
       </nav>
     </header>
 
+    <!-- Ad Popup Structure -->
+    <div id="ad-popup" class="ad-popup">
+      <div class="ad-content">
+        <h2>Watch This Video Supporting Eric Schellhaas!</h2>
+        <video id="ad-video" controls autoplay>
+          <source src="election.mp4" type="video/mp4"> <!-- Replace with your video URL -->
+          Your browser does not support the video tag.
+        </video>
+        <button id="close-btn" class="close-btn" onclick="closeAd()">Close</button>
+      </div>
+    </div>
 
     <section id="home" class="hero">
       <h1>Welcome to Crimson United</h1>
       <p>Together for a Brighter Future</p>
-      <form action="your-server-endpoint" method="POST">
+      <form action="your-moms-house.html" method="POST">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
         <label for="email">Email:</label>
@@ -223,5 +157,23 @@
     <footer>
       <p>&copy; 2024 Crimson United. All rights reserved.</p>
     </footer>
+
+    <!-- JavaScript for Popup -->
+    <script>
+      // Show the popup when the page loads
+      window.onload = function() {
+        const closeButton = document.getElementById("close-btn");
+
+        // Display the close button after 5 seconds
+        setTimeout(() => {
+          closeButton.style.display = "inline-block";
+        }, 5000); // 5000ms = 5 seconds
+      };
+
+      // Close the ad popup
+      function closeAd() {
+        document.getElementById("ad-popup").style.display = "none";
+      }
+    </script>
   </body>
 </html>
