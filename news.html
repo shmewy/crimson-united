@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News - Crimson United</title>
+    <style>
+      body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+        overflow-x: hidden;
+        transition: background-color 0.3s ease;
+      }
+      header {
+        background-color: #8B0000;
+        color: white;
+        padding: 15px 0;
+        position: sticky;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        text-align: center;
+        transition: background-color 0.3s ease;
+      }
+      header nav a {
+        color: white;
+        margin: 0 15px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+      header nav a:hover {
+        color: #FFD700;
+      }
+      .hero {
+        background-image: url('IMG_0107.jpg'); /* Replace with a suitable News image URL */
+        background-size: cover;
+        background-position: center 30%;
+        color: white;
+        text-align: center;
+        padding: 60px 20px;
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: background-size 0.3s ease;
+      }
+      .hero h1 {
+        font-size: 3em;
+        margin: 0;
+        transition: color 0.3s ease;
+      }
+      .news-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+        gap: 20px;
+        margin: 20px auto;
+        padding: 20px;
+        width: 90%;
+        max-width: 1200px;
+        box-sizing: border-box;
+      }
+      .news-item {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        transition: transform 0.3s ease;
+      }
+      .news-item:hover {
+        transform: scale(1.05);
+      }
+      .news-item img, .news-item video {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        margin-bottom: 15px;
+      }
+      .news-item h3 {
+        color: #8B0000;
+        margin: 10px 0;
+      }
+      .news-item p {
+        color: #333;
+      }
+      footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        width: 100%;
+        margin: 0;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      footer p {
+        margin: 0;
+      }
+      @media (max-width: 768px) {
+        .news-container {
+          grid-template-columns: 1fr; /* Switch to single column on smaller screens */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about-us.html">About Us</a>
+        <a href="policies.html">Policies</a>
+        <a href="news.html">News</a>
+        <a href="events.html">Events</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>Latest News</h1>
+      <p>Stay Updated with Crimson United</p>
+    </section>
+
+    <section class="news-container">
+      <!-- News Item 1 -->
+      <div class="news-item">
+        <img src="IMG_0108.jpg" alt="News Image 1"> <!-- Replace with actual image URL -->
+        <h3>Presidential Candidate Can Fly?</h3>
+        <p>This rare photo shot of Mr. Schellhaas was taken of him flying.</p>
+      </div>
+
+      <!-- News Item 2 -->
+      <div class="news-item">
+        <video controls>
+          <source src="news-video1.mp4" type="video/mp4"> <!-- Replace with actual video URL -->
+          Your browser does not support the video tag.
+        </video>
+        <h3>Kaylee Schellhaas Endorses The Crimson United Party</h3>
+        <p>Kaylee Schellhaas endorsed the candidate running for the Crimson United Party on Friday. Will this affect the race?</p>
+      </div>
+
+      <!-- News Item 3 -->
+      <div class="news-item">
+        <img src="news-image2.jpg" alt="News Image 2"> <!-- Replace with actual image URL -->
+        <h3>Candidate Eric Schellhaas Mows The Lawn</h3>
+        <p>Eric Schellhaas, 13 years of age, was helping citizens with their lawn work.</p>
+      </div>
+
+      <!-- News Item 4 -->
+      <div class="news-item">
+        <video controls>
+          <source src="news-video2.mp4" type="video/mp4"> <!-- Replace with actual video URL -->
+          Your browser does not support the video tag.
+        </video>
+        <h3>Headline 4</h3>
+        <p>Brief description or caption for news item 4.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 Crimson United. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

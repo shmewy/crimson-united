@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crimson United</title>
+    <style>
+      body {
+        overflow-x: hidden;
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+        transition: background-color 0.3s ease;
+      }
+      header {
+        background-color: #8B0000; /* Crimson color */
+        color: white;
+        padding: 15px 0;
+        position: sticky;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        text-align: center;
+        transition: background-color 0.3s ease;
+      }
+      header nav a {
+        color: white;
+        margin: 0 15px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+      header nav a:hover {
+        color: #FFD700; /* Gold color on hover */
+      }
+      .hero {
+        background-image: url('IMG_0106.jpg'); /* Replace with your image URL */
+        background-size: cover;
+        background-position: 1550px;
+        color: white;
+        border-radius: 0px;
+        text-align: left; /* Align text to the left */
+        height:140vh;
+        width: 100vw; /* Ensure the section fills the entire viewport */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start; /* Align items to the left */
+        margin: 0;
+        position: relative;
+        transition: background-size 0.3s ease;
+      }
+      .hero h1 {
+        font-size: 4em; /* Larger title */
+        margin: 0 0 0 5%; /* Add margin to the left */
+        transition: color 0.3s ease;
+      }
+      .hero form {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 5px;
+        border: 2px solid #8B0000; /* Red border */
+        position: absolute;
+        right: 4%;
+        top: 20%;
+        transform: translateY(-50%);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for modern look */
+        width: 40%; /* Default width */
+        max-width: 600px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .hero form:hover {
+        transform: translateY(-50%) scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      }
+      .hero form label,
+      .hero form input {
+        display: block;
+        margin: 10px 0;
+        color: black; /* Black text */
+        transition: color 0.3s ease, background-color 0.3s ease;
+      }
+      .hero form input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+      .hero form button {
+        background-color: #8B0000;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        width: 100%; /* Full width button */
+        border-radius: 5px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+      .hero form button:hover {
+        background-color: #FFD700; /* Gold color on hover */
+        transform: scale(1.05);
+      }
+      section {
+        background-color: white;
+        margin: 20px auto;
+        padding: 20px;
+        width: 90%;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: background-color 0.3s ease;
+      }
+      section h2 {
+        color: #8B0000;
+        margin-bottom: 10px;
+        transition: color 0.3s ease;
+      }
+      section img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        transition: transform 0.3s ease;
+      }
+      section img:hover {
+        transform: scale(1.05);
+      }
+      footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        width: 100%;
+        margin: 0;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      footer p {
+        margin: 0;
+      }
+      @media (max-width: 900px) {
+        header nav a {
+          display: block;
+          margin: 5px 0;
+        }
+        .hero form {
+          width: 80%; /* Make form full width on small screens */
+          right: 10%;
+          top: auto;
+          transform: none;
+          margin: 20px auto;
+        }
+      }
+      @media (max-width: 600px) {
+        .hero form {
+          width: 90%; /* Adjust form width for very small screens */
+        }
+      }
+  </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about-us.html">About Us</a>
+        <a href="policies.html">Policies</a>
+        <a href="news.html">News</a>
+        <a href="events.html">Events</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+
+    <section id="home" class="hero">
+      <h1>Welcome to Crimson United</h1>
+      <p>Together for a Brighter Future</p>
+      <form action="your-server-endpoint" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="amount">Donation Amount:</label>
+        <input type="number" id="amount" name="amount" min="1" required>
+        <button type="submit">Donate</button>
+      </form>
+    </section>
+
+    <section id="about">
+      <h2>About Us</h2>
+      <img src="about-us.png" alt="About Us Image"> <!-- Replace with your image URL -->
+      <p>Our Story, Vision, and Leadership</p>
+    </section>
+
+    <section id="policies">
+      <h2>Policies</h2>
+      <img src="policy.jpg" alt="Policies Image"> <!-- Replace with your image URL -->
+      <p>Economy, Immigration, Defense, Foreign Affairs</p>
+    </section>
+
+    <section id="news">
+      <h2>News</h2>
+      <img src="news-image-url.jpg" alt="News Image"> <!-- Replace with your image URL -->
+      <p>Latest Updates and Media Gallery</p>
+    </section>
+
+    <section id="events">
+      <h2>Events</h2>
+      <img src="calendar.png" alt="Events Image"> <!-- Replace with your image URL -->
+      <p>Upcoming Events and Volunteer Opportunities</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <img src="contact-image-url.jpg" alt="Contact Image"><!-- Replace with your image URL -->
+      <p>Contact Form and Social Media Links</p>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 Crimson United. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

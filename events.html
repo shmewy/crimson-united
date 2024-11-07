@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - Crimson United</title>
+    <style>
+      body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+        overflow-x: hidden;
+        transition: background-color 0.3s ease;
+      }
+      header {
+        background-color: #8B0000;
+        color: white;
+        padding: 15px 0;
+        position: sticky;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        text-align: center;
+        transition: background-color 0.3s ease;
+      }
+      header nav a {
+        color: white;
+        margin: 0 15px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+      header nav a:hover {
+        color: #FFD700;
+      }
+      .events-container {
+        padding: 20px;
+        max-width: 800px;
+        margin: 20px auto;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      }
+      .event-date {
+        color: #8B0000;
+        font-weight: bold;
+        font-size: 1.2em;
+        margin-top: 20px;
+      }
+      .event-details {
+        margin-top: 10px;
+        padding-left: 20px;
+        list-style-type: disc;
+      }
+      footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        width: 100%;
+        margin: 0;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      footer p {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about-us.html">About Us</a>
+        <a href="policies.html">Policies</a>
+        <a href="news.html">News</a>
+        <a href="events.html">Events</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <section class="events-container">
+      <h1>Upcoming Events</h1>
+
+      <!-- Event 1 -->
+      <div class="event">
+        <p class="event-date">November 10, 2024</p>
+        <ul class="event-details">
+          <li>Community Meeting at Downtown Hall</li>
+          <li>Guest Speaker: Dr. Sigma Fields on Healthcare Reform</li>
+          <li>Networking session and refreshments provided</li>
+        </ul>
+      </div>
+
+      <!-- Event 2 -->
+      <div class="event">
+        <p class="event-date">December 15, 2024</p>
+        <ul class="event-details">
+          <li>Annual Charity Fundraiser Gala</li>
+          <li>Location: Grand Rizzroom, Skibidi Center</li>
+          <li>Formal attire required</li>
+          <li>All proceeds go to local educational programs</li>
+        </ul>
+      </div>
+
+      <!-- Event 3 -->
+      <div class="event">
+        <p class="event-date">January 5, 2025</p>
+        <ul class="event-details">
+          <li>Volunteer Training Workshop</li>
+          <li>Location: Crimson United Headquarters</li>
+          <li>Training on community outreach and support services</li>
+          <li>Snacks and Mogs provided</li>
+        </ul>
+      </div>
+
+      <!-- Event 4 -->
+      <div class="event">
+        <p class="event-date">February 20, 2025</p>
+        <ul class="event-details">
+          <li>Environmental Awareness Campaign Launch</li>
+          <li>Location: Fanumside Park</li>
+          <li>Speakers from leading environmental organizations</li>
+          <li>Public invited to participate in park cleanup afterward</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 Crimson United. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
